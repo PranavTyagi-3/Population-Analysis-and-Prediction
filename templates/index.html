@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Population analysis and Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div id="head"><h2>Population Analysis and Prediction</h2></div>
+    <div class="country_pred">
+        <h3>Enter a country's name to get Population Prediciton</h3>
+        <form id='form' method="post">
+            <input type="text" name='c_name' class="form-control" placeholder="Enter country name..">
+            <button type="submit" class="btn btn-light">Submit</button>
+        </form>
+    </div>
+    <div id="prediction">
+    </div>
+    
+    <div class="all_gr">
+        <div id="graph1"></div>
+        <div id="world_urban"></div>
+        <div class="row_g">
+        <div id="graph2" class="col_g"></div>
+        <div id="graph3" class="col_g"></div>
+        </div>
+        <div class="row_g">
+            <div id="cont_growth" class="col_g"></div>
+            <div id="cont_total_pop" class="col_g"></div>
+        </div>
+        <h1>Statistics About India</h1>
+        <div class="row_g">
+        <div id="graph4" class="col_g"></div>
+        <div id="graph5" class="col_g"></div>
+        </div>
+        <div class="row_g">
+        <div id="graph6" class="col_g"></div>
+        <div id="graph7" class="col_g"></div>
+        </div>
+        <div id="graph8"></div>
+    </div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript">
+        var g1 = {{ pred_json | safe}};
+        Plotly.plot("prediction", g1, {});
+
+        var top15 = {{ top_15_json | safe}};
+        Plotly.plot("graph2", top15, {});
+
+        var dens = {{ pop_density_json | safe}};
+        Plotly.plot("graph1", dens, {});
+
+        var cont = {{ continent_pop_json | safe}};
+        Plotly.plot("graph3", cont, {});
+        
+        var india_pop = {{ india_pop_json | safe }};
+        Plotly.plot("graph4",india_pop, {});
+
+        var india_urb = {{ india_urb_json | safe }};
+        Plotly.plot("graph5",india_urb, {});
+
+        var india_inf = {{ india_inf_json | safe }};
+        Plotly.plot("graph6",india_inf, {});
+
+        var india_birth_death = {{ india_birth_death_json | safe }};
+        Plotly.plot("graph7",india_birth_death, {displayModeBar: false});
+
+        var india_corr = {{ india_corr_json | safe }};
+        Plotly.plot("graph8",india_corr, {});
+       
+        var world_urb = {{ world_urban_json | safe }};
+        Plotly.plot("world_urban", world_urb, {});
+
+        var continent_growth = {{ cont_growth_json | safe }};
+        Plotly.plot("cont_growth", continent_growth, {});
+
+        var contiinent_total_pop = {{ cont_total_pop_json | safe }};
+        Plotly.plot("cont_total_pop", contiinent_total_pop, {});
+        
+    </script>
+</body>
+</html>

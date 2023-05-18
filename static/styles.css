@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body{
+    background-image: linear-gradient(to right, rgb(0, 0, 70), rgb(28, 181, 224));
+}
+ 
+#head{
+    text-align: center;
+    margin: 20px;
+}
+
+.country_pred{
+    text-align: center;
+    padding-top: 30px;
+}
+
+#prediction{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+#graph1{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.row_g{
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.col_g{
+    width: 50%;
+    justify-content: center;
+    display: flex;
+}
+
+.all_gr>h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+#graph8{
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+form button{
+    margin: 10px;
+}
+#world_urban{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
